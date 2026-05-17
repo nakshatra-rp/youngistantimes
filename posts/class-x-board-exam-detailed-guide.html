@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class X Board Exam: Detailed Guide | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 0 0 28px 0;
+    background: var(--highlight);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-size: 17px !important;
+    font-style: italic;
+    color: var(--ink) !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body h2 {
+    font-family: var(--heading); font-size: 24px; font-weight: 700;
+    margin: 44px 0 20px 0; color: var(--ink);
+  }
+  
+  .article-body h3 {
+    font-family: var(--body); font-size: 18px; font-weight: 500;
+    margin: 28px 0 12px 0; color: var(--accent); text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+    <h1>Class X Board Exam: Detailed Guide</h1>
+    <p class="article-desc">I scored 97.8% in my CBSE boards without waking up at 4 AM or studying for 12 hours daily. Here are the myths I would like to formally put to rest, and some secrets no topper talks about.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Jul 29, 2022</span>
+      <span>·</span>
+      <span>5 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <div class="pull-quote">
+      <p>"Life Is The Most Difficult Exam, Many People Fail Because They Try To Copy Others"</p>
+    </div>
+  
+    <p>As you all know, board examinations refer to the public examinations that are conducted at the end of the 10th grade education, and at the end of the 12th grade education. Recently, exam results have been declared by all the national and state boards and mixed responses from students have been received. While not getting the expected board exam result isn't the end of your life, most of us wish to score a good percentage. Being a student who scored 97.8% in my CBSE board examination, I would like to bust some myths regarding board exam rankholders and hopefully give a more realistic picture of these ordinary human beings who are depicted as hardcore nerds by the media. Read till the end to find out some secrets that have not been revealed by any "topper".</p>
+  
+    <h2>MYTHS</h2>
+  
+    <h3>Daily studies</h3>
+    <p>This is the greatest myth that I've been fed by everyone around me, including teachers. In middle school, many of my friends used to study their daily portions because their parents compelled them to do so. But I realized that it's absolutely unnecessary if you've enough focus in class and can complete your daily homework. If anyone asks me the first and foremost criteria to excel, it is not just to hear, but listen to the class. 60% of my studies were done this way.</p>
+  
+    <h3>12+ hours of study during holidays</h3>
+    <p>When I had started my Grade 10, I was determined to score a good percentage. But every article that I had found on Google suggested me a study timetable that required me to wake up at 6am and study till 10pm with breaks in between for food and exercise. It seemed really extraordinary to me and it was also one of the factors which built stress in me during the final study holidays as I could not even imagine having such a routine. I figured out that waking up at 7am and studying for 2-3 hours was just fine for me and I could spend the rest of the day freely, making time for other hobbies. On some days, I would even take a break!</p>
+  
+    <h3>Sacrifice sleep and entertainment</h3>
+    <p>This is one of the misconceptions which we understand that it is unhealthy but still have the tendency to follow it. It could also do more harm than good to your studies. Maintaining a proper sleep schedule is paramount in functioning efficiently. I have seen my friends sending me doubts at 2am which I might see the next day. I've also heard my friends questioning me for going out, watching movies or pursuing my hobbies during study holidays. What many still don't realize is that the quality of studies matter more than the quantity.</p>
+  
+    <h3>Avoid social media</h3>
+    <p>This is something which many (especially adults) may not agree with but using social media in a controlled way keeps you updated about what's happening around you and connects you with your friends and family. During my study holidays, I used to be alone at home as my brother had school and my parents had to work. Although it helped me focus better, sometimes it also created a feeling of emptiness. Social media is one of the things that kept me entertained. The only reason why it's advised to avoid social media is because there's a fine line between controlled use and addiction and it's something that I've battled during my last few exams. But it is safe to say that it is not really required to stop consuming the content two months prior to the exam if you use it in a limited manner so that it doesn't turn into a distraction.</p>
+  
+    <h3>Use external guides to study</h3>
+    <p>The misconception here is that guides should be used to study rather than the textbook. The truth is that many guides contain more complicated terms which may not be required. Textbook should be your main focus and in my case, I have come across the slogan "NCERT is the Bible of CBSE students". It is indeed true. The only time you need to gather extra information out of your textbook is when your teacher suggests you to do so, as they're more experienced and have analysed the kind of questions that had appeared in the previous years. I would recommend to use more question banks than guides as it offers you a plenty amount of practice.</p>
+  
+    <h2>MY STUDY PATTERN</h2>
+  
+    <p>Now that the misconceptions are cleared, I'll discuss my study habits over the course of Grade 10. As I've already mentioned, I had entered 10th grade with the aim of achieving a good score. I had this goal in mind throughout the year. Although I didn't have a daily fixed study routine, I was regular with my assignments. So you might wonder, how did I score without studying? My studying mainly came from the attention that I had paid in class, my homeworks and the study plans I created for each test I had that year. For example, if I had a periodic test coming up, I would prepare a study plan for it 1-2 weeks prior to the test. Last year when CBSE had announced the conduct of two term examinations, I prepared for my Term 1 exam during the summer holidays in July. Likewise, I had a different study plan for each set of exams. This was done to cater to the varying format of exams conducted last year.</p>
+  
+    <p>Now what did my study plan include? Firstly, I found a time that's best for me to stay focused. I decided to wake up in the morning as it was the time which would have the least distractions (many people would still be asleep around that time during summer which would lead to lesser notifications and external noise). I used to go through the chapter, trying to recollect what I learnt in class and learn the parts which required memorization. I would then solve questions related to the chapter which are from recognised guides/question banks or even from Google. I also used to do 2-3 chapters in a day, according to the difficulty level and by switching the subjects. I found the active recall method to be extremely useful.</p>
+  
+    <p>If I start studying in the morning, it would last no longer than noon. I might also finish it earlier than noon if I find the topics easy. I would spend the rest of my time pursuing my hobbies such as drawing, singing or binge-watching movies and series. I would also indulge in co-curricular activities along with my classmates or just small chit-chats with friends. The point of waking up early is also to finish studies without compromising my time for other activities. It is also a great way to avoid burnout.</p>
+  
+    <p>During study holidays right before the board examination, I used to quickly run through the topics to revise and then go through all sample papers just to check if I find any questions which confused me so that I can learn that part again. It is recommended to solve atleast one sample paper by hand to time yourself for the actual exam, before each subject.</p>
+  
+    <h2>MY ADVICE</h2>
+  
+    <p>The best advice I can offer is not to take any advice. We all have different needs and cannot follow another person's routine blindly. We may have different grasping capacities, attention spans and aptitude levels so it would take different amounts of time and practice for each one of us to improve. And the most important ability that everyone must have is to accept our faults and work on them. Know that this is not the end of your life's journey but just the beginning :)</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">cbse</span>
+    <span class="tag-pill">board exams</span>
+    <span class="tag-pill">study tips</span>
+    <span class="tag-pill">education</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="fifa-2022-non-football-fan-edition.html">← Previous Post</a>
+    <a href="the-dramatic-but-fun-life-india.html">Next Post →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
