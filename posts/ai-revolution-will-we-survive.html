@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Revolution: Will We Survive? | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+    <h1>AI Revolution: Will We Survive?</h1>
+    <p class="article-desc">M3GAN the killer robot is fictional. ChatGPT the killer essayist is not. A teenager's honest take on whether AI is actually a threat or just a mirror for our own unoriginal ideas.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Mar 29, 2023</span>
+      <span>·</span>
+      <span>2 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <p>M3GAN, the killer robot might be fictional but what about ChatGPT, the killer essayist? Just kidding, it hasn't got a mechanical system. Atleast not yet.</p>
+  
+    <p>What can a bot which took fifteen solid seconds to answer my question "How are you?" do anything harmful to the human race, right? However, we shall not underestimate it. The OpenAI-powered software's ability to produce a customized output following its complex algorithms is commendable. There have been mixed opinions regarding the rapid progress of artificial intelligence recently. Almost six years ago, one of my published pieces of work reflected the admiration of the application of AI in the current world scenario. Today, I still believe that it can make our lives relatively easier, but it shouldn't replace certain elements of our lives entirely.</p>
+  
+    <p>Let's talk about the controversies against AI with the example of ChatGPT (Generative Pre-trained Transformer). A common argument against the language model is that it's a threat to writers. While the tool can produce exceptionally well written works, it is still not more than a natural language processing tool which is trained to recognize speech. Our unique experiences and feelings are what distinguishes us from it. NLP uses datasets from a variety of sources which are indeed produced by humans. Also, human language is flexible and sometimes, ambiguous too. Since GPT is trained by datasets created by humans, there is a possibility that it can spread misinformation while being completely confident in what it's saying.</p>
+  
+    <p>At the end of the day, a chat bot cannot produce a thought that the human mind is not capable of. Human intelligence will always be superior. The real threat here is being a prisoner of the advantages of technology, instead of training ourselves to keep up with it. If you're a writer who feels threatened by ChatGPT, it means that your ideas are not novel enough.</p>
+  
+    <p>With all that being said, keeping a check on our artificially intelligent friends so that they don't get misused should always be the developer's top priority. Potential dangers, including creation of malware and convincing phishing emails, could be reduced by training the model with datasets that help them recognize the intention of the user's input.</p>
+  
+    <p>PS: Since this blog post is not written by ChatGPT, kindly let me know if something that I've typed didn't make sense XD</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">artificial intelligence</span>
+    <span class="tag-pill">technology</span>
+    <span class="tag-pill">reflections</span>
+    <span class="tag-pill">writing</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="two-worlds.html">← Previous Post</a>
+    <a href="so-close-yet-far-apart.html">Next Post →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
