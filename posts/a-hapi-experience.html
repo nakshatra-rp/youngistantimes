@@ -67,15 +67,6 @@
     width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
   }
  
-  .cover-img {
-    width: 100%; height: 380px; border-radius: 4px; margin-bottom: 44px;
-    object-fit: cover;
-    background: linear-gradient(135deg, #b8d4c8, #8fb8a8);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--muted); font-size: 14px; font-style: italic;
-    padding: 20px; text-align: center;
-  }
- 
   .pull-quote {
     border-left: 3px solid var(--accent);
     padding: 16px 24px;
@@ -138,12 +129,10 @@
     .article-header h1 { font-size: 32px; margin-bottom: 14px; }
     .article-desc { font-size: 16px; margin-bottom: 20px; }
     
-    .cover-img { height: auto; min-height: 25vh; margin-bottom: 32px; }
-    
     .article-body p { font-size: 16px; margin-bottom: 24px; }
     .article-body p:first-of-type::first-letter { font-size: 48px; margin: 4px 8px 0 0; }
     
-    .bottom-nav { flex-direction: column; gap: 14px; text-align: center; padding-top: 24px; margin-top: 40px; }
+    .bottom-nav { padding-top: 24px; margin-top: 40px; }
     
     footer { padding: 32px 20px; flex-direction: column; text-align: center; gap: 14px; }
   }
@@ -175,10 +164,6 @@
       <span>3 min read</span>
     </div>
   </header>
- 
-  <!-- Replace this div with your actual cover image once uploaded:
-       <img class="cover-img" src="../images/a-hapi-experience.jpg" alt="A Hapi Experience"> -->
-  <div class="cover-img">Add your cover image here</div>
  
   <article class="article-body">
  
