@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life of a Bar-headed Goose | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+ 
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+ 
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+ 
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+ 
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+ 
+  .article-tag {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+ 
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+ 
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+ 
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+ 
+  .cover-img {
+    width: 100%; height: 380px; border-radius: 4px; margin-bottom: 44px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #d4b896, #b8956a);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 14px; font-style: italic;
+  }
+ 
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+  }
+ 
+  .article-body p:first-child::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+ 
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 4px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white;
+  }
+ 
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+ 
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+ 
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+ 
+<div class="article-wrap">
+ 
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+ 
+  <header class="article-header">
+    <span class="article-tag">Experiences</span>
+    <h1>Life of a Bar-headed Goose</h1>
+    <p class="article-desc">My first qualitative research project forced me to study migration and identity, and turned into something unexpectedly personal for an ex-NRI trying to grow in the land of banyans and neem trees.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Dec 22, 2025</span>
+      <span>·</span>
+      <span>2 min read</span>
+    </div>
+  </header>
+ 
+  <!-- Replace this div with your actual cover image once uploaded:
+       <img class="cover-img" src="../images/bar-headed-goose.jpg" alt="Life of a Bar-headed Goose"> -->
+  <div class="cover-img">Add your cover image here</div>
+ 
+  <article class="article-body">
+ 
+    <p>My first qualitative research project is a study on the influence of migration on the identity of young adults. Like most other undergraduate papers, I can admit that I was forced into this. The paper, not the topic. What started as a vague idea from ChatGPT was narrowed into the question of "How does moving into another country influence the identity of young adults?", it felt like something that should be spoken about. As an ex-NRI myself, the topic resonated with me.</p>
+ 
+    <p>I was brought up in the Middle East from a very young age, so it's not unusual for me to call the UAE my home, despite being an Indian. I recall the exciting holidays in Kerala, which I call my "hometown", and the longing to experience more of it. Last year, I eagerly started my university in Bangalore. I realized, perhaps, it's not as easy as I thought. The homesickness swept over me for the longest time. I waited for the exact moment I could say that I was over it. But that moment never came. I was an uprooted palm, trying to grow in the land of banyans and neem trees. It seemed absolutely normal, pretending to be one of them, until I felt like I started to lose myself. What came masked as an obsessive need for routine and order, was the fear of memories. The fear of longing for something that was never yours in the first place. And I called that adaptation.</p>
+ 
+    <p>I completely adjusted to the new version of me, explored new places and met new people. However, there's a funny thing about humans. We are such nostalgic beings. We like repeating our past, the people, the places, the experiences. I look at my surroundings now, and I see what my younger version saw. The vibes, the laughter, and the lights that surround me. What I used to love is what I still love. And it gave me peace. It gave me answers. I didn't really lose anything about myself. I just needed to allow myself to relax and welcome my new home with open arms, the people and the sights around me. A major part of my identity did not really change; it just expressed itself in better ways.</p>
+ 
+    <p>What I realized when I started the research was that there are some variables that science cannot operationalize, like 'home country' and 'host country'. Even within the country, there are differences. My experience in Kerala is definitely not the same as that in Bangalore. The complexity of human subjective experiences should be recognized more often. There are limitations to categorising these into broad themes. Yet, efforts should be made to explore and understand the depth of each account.</p>
+ 
+    <p>With that reflection, I close 2025 with my last blog post of the year. Wishing you a Merry Christmas and Happy New Year! 🎄</p>
+ 
+  </article>
+ 
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">memories</span>
+    <span class="tag-pill">life event</span>
+    <span class="tag-pill">migration</span>
+    <span class="tag-pill">research</span>
+  </div>
+ 
+  <div class="bottom-nav">
+    <a href="../index.html">← All Posts</a>
+    <a href="a-hapi-experience.html">Next Post →</a>
+  </div>
+ 
+</div>
+ 
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2025 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+ 
+</body>
+</html>
