@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Hapi Experience | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+ 
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+ 
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+ 
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+ 
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+ 
+  .article-tag {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+ 
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+ 
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+ 
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+ 
+  .cover-img {
+    width: 100%; height: 380px; border-radius: 4px; margin-bottom: 44px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #b8d4c8, #8fb8a8);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 14px; font-style: italic;
+  }
+ 
+  /* Pull quote styling for the Malayalam opening */
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 0 0 28px 0;
+    background: var(--highlight);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-size: 17px !important;
+    font-style: italic;
+    color: var(--ink) !important;
+    margin-bottom: 8px !important;
+  }
+  .pull-quote .translation {
+    font-size: 14px !important;
+    color: var(--muted) !important;
+    font-style: normal !important;
+    margin-bottom: 0 !important;
+  }
+ 
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+  }
+ 
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+ 
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 4px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white;
+  }
+ 
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+ 
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+ 
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+ 
+<div class="article-wrap">
+ 
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+ 
+  <header class="article-header">
+    <span class="article-tag">Experiences</span>
+    <h1>A Hapi Experience</h1>
+    <p class="article-desc">An internship at a pediatric therapy centre, a zoo trip I did not sign up for, and a five-year-old who taught me more about gratitude than any psychology textbook ever could.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>May 28, 2025</span>
+      <span>·</span>
+      <span>3 min read</span>
+    </div>
+  </header>
+ 
+  <!-- Replace this div with your actual cover image once uploaded:
+       <img class="cover-img" src="../images/a-hapi-experience.jpg" alt="A Hapi Experience"> -->
+  <div class="cover-img">Add your cover image here</div>
+ 
+  <article class="article-body">
+ 
+    <div class="pull-quote">
+      <p>"ചേച്ചി, എന്നെ ഒന്ന് എടുത്ത് പൊക്കി കാണിക്കാമോ"</p>
+      <p class="translation">Translation: "Chechi, can you please lift me up and show", asked her, pointing at a bird that even I couldn't see.</p>
+    </div>
+ 
+    <p>I don't think internships are only for LinkedIn. There are so many little moments that get overshadowed by bigger achievements, like learning the role of neurotransmitters in psychological disorders. My first internship at a chaotic but lovely pediatric therapy centre called Hapinus Care has given me so many of these little unforgettable moments.</p>
+ 
+    <p>Besides regular self-diagnosis from discussing cases and constant contemplation of my own career choices, my favourite thing to do was to take over the large ball pit when the kids were absent. Oh my bad, I was supposed to say — dealing with children. I'm barely a people-person, so anybody who knows me could conclude that I'm definitely not a kid-person either. However, my workplace demanded me to actively engage with children aged from four to fifteen to help them build social and self-care skills through play and creative activities. I hope the roles I took up as a dance choreographer and treasure hunt organizer add versatility to my resume someday.</p>
+ 
+    <p>An absolute horror of an experience was (being peer-pressured into) volunteering for a field trip to the zoo with the kids. I don't know who thought it was a good idea to take those 10 unpredictable bumper cars to a public place in the scorching heat for the sake of the development of social skills. If anything, I witnessed a good number of "anti-social" skills there. The little girl I was handling wanted to see only the lion and tiger, and I firmly believe every zoo should have a separate minor ticket for access to see only those two animals (considering the high demand). As much as I enjoyed walking around and showing her every animal who looked as miserable as us in the summers, it was not long before my gastric juices announced hunger. The little girl announced it with her mouth (jinx!).</p>
+ 
+    <p>After having a fulfilling meal, we headed to the children's park and I resisted every tantrum she threw and demands for ice cream, cotton candy and chocolates. Finally, when I was able to breathe again without the weight of child abuse — abuse from a child — I bought myself a bottle of water from a shop nearby. I saw packets of chocolate that she had earlier asked me for, lined up on the counter. My tender gesture of calling her and offering the chocolate I bought for her made me anticipate her reaction — a smile, a hug or a nice word. I was shattered when the five-year-old ate the chocolate, threw its wrapper and went back to playing with the same expression she had before eating the chocolate. That's when I realized a painful truth. None of us are really better than a five-year-old when it comes to being grateful for subtle joys. We constantly chase grand gestures, criticize for what we didn't receive and turn a blind eye to genuine efforts. I also made an instant mental apology to my parents and grandparents, who pampered me throughout my childhood and whose efforts were never understood by me.</p>
+ 
+    <p>It wasn't only the children who made my journey memorable. I'm also thankful to my fellow interns, who not only showed passion and eagerness to learn more, but also gifted me many moments of giggles and laughter through role plays and rapport-building sessions. The life experiences and stories for which I didn't mind staying past the working hours, are moments that are beyond practicing CBT or understanding Freud's blasphemous theories. The coffee machine that had its own ups and downs deserves a noteworthy mention (I got a cup of lime tea once when I asked for coffee). The quiet moments of sipping a hot coffee after hearing intense cases and dipping a biscuit into that coffee to drown your emotions in it were reminders to myself — a glimpse into my future as a psychologist.</p>
+ 
+  </article>
+ 
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">pediatric therapy</span>
+    <span class="tag-pill">internship</span>
+    <span class="tag-pill">kids</span>
+    <span class="tag-pill">zoo</span>
+  </div>
+ 
+  <div class="bottom-nav">
+    <a href="life-of-a-bar-headed-goose.html">← Previous Post</a>
+    <a href="once-upon-a-semester.html">Next Post →</a>
+  </div>
+ 
+</div>
+ 
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2025 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+ 
+</body>
+</html>
