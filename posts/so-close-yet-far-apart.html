@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Close, Yet Far Apart | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+    <h1>So Close, Yet Far Apart</h1>
+    <p class="article-desc">My mother's kitchen monologue about her childhood made me realise what social media actually does. It lets us watch people drift away in real time, without ever losing contact.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Feb 18, 2023</span>
+      <span>·</span>
+      <span>2 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <p>Sometimes you don't see the glimpses of reality while relaxing on a bench at the park, listening to the gentle rustle of the leaves. Sometimes you see them when you're trapped within the four walls of your room, trying to make sense out of the dancing words on the book that you're trying to read.</p>
+  
+    <p>Giving myself up to the exhaustion, I let the words escape the page as I diverted my attention to my mother who, from the kitchen, started her monologue about the "good old times". Talking is her second favourite hobby, after sleeping, but having her chill-yet-vibrant soul around is my only reminder to take a break from my fatiguing routine. Her vivid descriptions of the busmate who wouldn't go to school without her, the teacher who was disappointed in her, the neighbours who filled her house with life every weekend, all painted the picture in my mind, of how lively her childhood must have been.</p>
+  
+    <p>It reminded me of my own memories, and I doubt whether I would ever be able to express their intensity through different combinations of 26 alphabets. The moments when I held and gazed into the eyes of my baby brother before he grew up to be my rival, the times when my grandfather's old-fashioned radio played in the background of my grandmother's stories while trying to sleep, all evoke in me something which can't be described in a few sentences. It's not just moments that I have lost, but also some people.</p>
+  
+    <p>My mother narrated her experiences in a light-hearted manner, which made me ponder over the depth of her emotions in those stories. At the end of her narrations, she would wonder where some of those different characters are, in the present. She would say, "Oh, your generation will never have to worry about losing contact. You've social media!". She is right. We'll never lose contact, even if we stop talking. Even if our roads diverge at the fork. Even if we painfully move on with our newly found joys. That's the curse of our generation. We all become merely someone's Facebook friend, Instagram follower or WhatsApp status viewer someday. We all silently skip through posts and stories. Internet has brought us together, they say, but the truth is that internet has given an opportunity to watch people drifting away. We will never have the chance to tell our kids how we wonder where some of the characters in our stories are, for we would already know that they're living in a distant reality despite being in the same world, as if our paths have never crossed once.</p>
+  
+    <p>This is for the ones in my life (so far) who might stumble upon this blog post at some point of time:
+    Be it the times when we've played in the rain, stressed over a project till midnight, danced to the weirdest tunes, laughed like there was no tomorrow, texted long deep conversations, cracked the lamest jokes or sat silently together pondering over the "epistemology of life", I remember you. I remember everything. And I'll make sure my child listens to my monologue from the kitchen, when they're done poring over books (or web series, whatever they like).</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">reflections</span>
+    <span class="tag-pill">memories</span>
+    <span class="tag-pill">generation gap</span>
+    <span class="tag-pill">friendship</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="ai-revolution-will-we-survive.html">← Previous Post</a>
+    <a href="fifa-2022-non-football-fan-edition.html">Next Post →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
