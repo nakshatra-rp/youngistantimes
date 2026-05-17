@@ -87,6 +87,83 @@
 
   footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 13px; color: var(--muted); }
+  /* ========================================= */
+  /* MOBILE INTERFACE STYLES                   */
+  /* ========================================= */
+  @media (max-width: 768px) {
+    /* 1. Navigation: Stack items on top of each other */
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 16px;
+    }
+    .search-wrap {
+      width: 100%;
+      max-width: 100%;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* 2. Hero Section: Make text smaller and reduce padding */
+    .hero {
+      padding: 40px 24px 32px;
+    }
+    .hero h1 {
+      font-size: 38px;
+    }
+
+    /* 3. Main Layout: Change from 2 columns to 1 column */
+    .main-layout {
+      grid-template-columns: 1fr; /* 1 single column */
+      padding: 32px 24px;
+    }
+    
+    /* Remove the line separating the left and right sides */
+    .featured-post {
+      padding-right: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+    }
+    .sidebar {
+      padding-left: 0;
+    }
+
+    /* 4. Grid Section: Change from 3 columns to 1 column */
+    .post-grid {
+      padding: 32px 24px 64px;
+    }
+    .grid {
+      grid-template-columns: 1fr; 
+    }
+
+    /* 5. Footer: Stack and center */
+    footer {
+      flex-direction: column;
+      padding: 24px;
+      gap: 12px;
+      text-align: center;
+    }
+
+    /* 6. Post/About/Contact Pages Mobile Fixes */
+    .page-container, .post-header, .post-content {
+      padding: 0 24px;
+      margin-top: 40px;
+    }
+    .post-header h1, .page-container h1 {
+      font-size: 36px;
+    }
+    .hero-image {
+      border-radius: 0; /* Lets the image stretch edge-to-edge on phones */
+      height: 250px;
+      margin-bottom: 32px;
+    }
+  }
 </style>
 </head>
 <body>
