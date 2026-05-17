@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EdTech Apps vs Education Boards | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+    <h1>EdTech Apps vs Education Boards</h1>
+    <p class="article-desc">Byju's promised me Shah Rukh Khan and a love for learning. My CBSE board wanted keywords and NCERT sentences. These are not the same thing.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Mar 9, 2022</span>
+      <span>·</span>
+      <span>2 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <p>The past few years have witnessed an upsurge in the launch of numerous educational apps in India, including the popular Byju's, Vedantu, Unacademy, Toppr and the list goes on. These platforms have designed their courses based on the syllabus of national and state education boards of India. Although these edtech apps share the similar goal of enhancing education, they mostly require payment to unlock all their features. Ridiculously enough, their marketing seems more forceful than an average Indian kid's career choices. Let us critically examine if these platforms are truly efficient in learning and most importantly, "scoring marks".</p>
+    
+    <p>The role of edtech apps during the pandemic is of notable mention. While online classes were disrupted in many parts of the country, these heroes saved our lives. These "heroes" also experienced a boom in their installation and usage rates (not much of a sacrifice, I guess?) and I would like to appreciate the ones which declared free service during the pandemic (obviously the time when I jumped on the bandwagon). Personally, I found the videos to be visually appealing and more understandable. Learning also turned out to be flexible as I could retake the concepts whenever necessary. I used to do as many multiple-choice-questions as I could while becoming that kid on the TV who "fell in love with learning" (Unfortunately Shah Rukh Khan didn't visit me). This was the story of my Grade 9.</p> 
+
+    <p>Before I could process the Grade 9 of my life, Grade 10 arrived (gatecrashed, to be precise). This was the time when I realized that the CBSE board didn't exactly want my learning to be fun. I had to adopt a more tedious method of studying the exact keywords and points to write for an answer according to the marks. No one cared if I understood what I was blabbering but if it contained the NCERT sentences, I was appreciated. Now, when I use the Byju's app, I get frustrated because the tutor tries to explain concepts in a nice way rather than telling what my education board requires me to produce on my examination paper. This makes edtech apps not worthy of the money that lakhs of students are paying to use them.</p>
+    
+    <p>The above opinion is solely based on the experience of a sophomore student who is currently not preparing for any entrance exams. Perhaps the apps might be useful for the ones who are coaching for national entrance tests (which I am unable to guarantee as of now). However, if you are someone who's still in middle or high school, I discourage entirely depending on such platforms to score marks because (i) Edtech companies always look forward to making profits and their packages are going to empty your pockets, (ii) Indian education boards don't go hand-in-hand with their approach and testing pattern.</p> 
+    
+    <p>Good luck with your academics! See you soon with another blog post :)</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">edtech</span>
+    <span class="tag-pill">cbse</span>
+    <span class="tag-pill">education system</span>
+    <span class="tag-pill">reflections</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="the-dramatic-but-fun-life-india.html">← Previous Post</a>
+    <a href="procrastinate-the-procrastination.html">Next Post →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
