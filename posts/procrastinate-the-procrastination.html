@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procrastinate the Procrastination? | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 0 0 28px 0;
+    background: var(--highlight);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-size: 17px !important;
+    font-style: italic;
+    color: var(--ink) !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+    <h1>Procrastinate the Procrastination?</h1>
+    <p class="article-desc">I delayed writing this post about procrastination for several months. But my point is that now I am done. Here is what I actually found out.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Jan 23, 2022</span>
+      <span>·</span>
+      <span>3 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <div class="pull-quote">
+      <p>“It is easier to resist at the beginning than at the end.” – Leonardo da Vinci</p>
+    </div>
+  
+    <p>Every one of us, adults and kids alike, struggle with the problem of promising ourselves to accomplish a task later - a "later" that may take days or weeks or months. In certain cases, the "later" may even turn into "never". But have we ever thought of what makes us delay our duties? We definitely can't postpone our work or school, then why do we do this to our homework and studies? After a thorough self-study, I have identified few main factors which lead to procrastination.</p>
+  
+    <p>Let me take you through my - a student's - perspective:</p>
+  
+    <p><strong>Case 1:</strong> I have to attend school for five days a week, from morning till late noon. I cannot delay getting up early in the morning as I would miss my school bus. If I miss my bus, I would miss a day's class and that would lead to me struggling to catch up with a day's work. Also, I would have to find valid reasons and evidence to support my absence. Thus, to avoid these complications, I somehow drag myself to school every morning.</p>
+  
+    <p><strong>Case 2:</strong> I receive homework and assignments from school almost everyday. I can complete these works at any time before the deadlines that are given. Thus, I plan to complete the assignments just before the deadline so that I could enjoy some Spotify in the present.</p>
+  
+    <p>If you examine both the cases, it is clearly visible that the latter is more flexible. But does that mean we should choose routine over flexibility? The choice would vary from one individual to another. We all don't function the same way.</p>
+  
+    <p>So, let's look at the next factor that influences our decision to delay the work:</p>
+  
+    <p><strong>Case 1:</strong> I'm given a Math homework. It is a question which is similar to the one which I did in class. I know that I have the knowledge to attempt this question and I also have the confidence that I would be able to get it right. Thus, I choose to do complete my homework.</p>
+  
+    <p><strong>Case 2:</strong> I am assigned with a 1000-word essay in English. I love writing but I doubt in my ability to bring up sufficient points to include in the essay. I am also uncertain if my points would be valid enough to fetch me good scores. Thus, I decide to wait until my classmates complete it and get some help from them.</p>
+  
+    <p>The above example is one of the most rational arguments to support procrastination. Your interest and self-confidence determines your initiative to complete a task. If a work seems complex and tedious, it is most likely that you will try to run away from it.</p>
+  
+    <p>Once you understand what triggers you to postpone your work, it would become easier for you to tackle procrastination. If you are a person who would delay work due to flexibility, create a routine for yourself. Follow the routine and track yourself. This would motivate you to keep a check on yourself if you break the habit. If you think that the task is unpleasant, break it up into several sessions. Set your own deadlines and reward yourself at the end of it. This would help you to ease the pressure of working.</p>
+  
+    <p>Always remember that procrastination is normal. Avoid feelings of guilt based on past experiences and acknowledge that putting off things that we dislike is reasonable. See the present version of yourself as a newer, wiser, stronger person who is ready to take action. Good luck on your journey!</p>
+  
+    <p>PS: I've been delaying this blog post for months now and I'm glad that I finally sat down to finish it. Now I've got to finish my pending assignments which I've been avoiding, so don't mind waiting for a longer time to see my next post. Thank you :)</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">procrastination</span>
+    <span class="tag-pill">habits</span>
+    <span class="tag-pill">productivity</span>
+    <span class="tag-pill">reflections</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="edtech-apps-vs-education-boards.html">← Previous Post</a>
+    <a href="ignorance-is-not-bliss-its-fault.html">Next Post →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
