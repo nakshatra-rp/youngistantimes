@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Resolution That Worked Out | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-tag {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 0 0 28px 0;
+    background: var(--highlight);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-size: 17px !important;
+    font-style: italic;
+    color: var(--ink) !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+   
+    <h1>The Resolution That Worked Out</h1>
+    <p class="article-desc">As the year winds down, standard declarations of "next year will be my year" begin. But against a track record of failed plans since 2018, one specific goal managed to beat the odds.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Dec 4, 2023</span>
+      <span>·</span>
+      <span>3 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <div class="pull-quote">
+      <p>“I want to give up my bearings, slip out of who I am, shed everything, the way a snake discards old skin." - Khaled Hosseini, And The Mountains Echoed</p>
+    </div>
+  
+    <p>As 2023 will be wrapped up in a few weeks, some of us have already given up on the year to improve anything about it. "2024 will be my year", we declare with hope to disguise the misery of our failed resolutions. Now brace yourselves as I drop the most coveted statement. I have a resolution that worked out!</p>
+  
+    <p>Since childhood, I have always taken great pleasure in planning, organizing and carrying out activities. The excitement that comes with implementing a plan of action is unbeatable. Naturally, New Year's resolutions fulfilled my inner urge to create plans. From promising myself to use social media only weekly, to deciding that I'd study for two hours daily, I have had zero resolutions that were achieved ever since I started making them in 2018. And then I stopped. I started to let the years unfold freely without the burden of expectations, just like most around me. This year has changed that.</p>
+  
+    <p>Reading was a hobby that I picked up late compared to many of my peers. I'll also gladly accept the embarrassment of revealing that the first time I completed a 300-page book was by reading Dork Diaries in Grade 6. My parents weren't avid readers and it was not unusual for me to have avoided that habit for a long time. As I got exposed to more genres in middle school, I discovered my passion for exploring the world of words. I still recall the surprise school bag check in Grade 8 when the most "harmful" item I was caught carrying was a BOOK that wasn't from the school library. The hobby continued as I traversed from one series to another to lose myself between the pages. Though I haven't been able to cover many of the All-Time-Popular-Books or reach the level of readers of my age, I still found satisfaction with the progress that I made. That was when I got into my reading slump after the pandemic. I nearly forgot the pleasures of leisure reading when I was burdened with textbooks.</p>
+  
+    <p>In 2022, when BookTok gained popularity, I found myself getting the urge to read the titles that appeared on my Instagram page (please refrain from bullying me for being inactive on TikTok). Towards the end of that year, with riveting book recommendations from my friends, I got into the habit of reading once again. When 2023 arrived, I set the goal of reading 23 books this year. The first few months had been effortless for me. This is why I strongly believe that, perhaps the key to successful New Year's Resolutions is to start your warm-up before the year even commences. There have been times when I almost gave up on the resolution because of many other priorities. Now that the year is coming to an end, I'm proud to say that I'm just one book away from my goal.</p>
+  
+    <p>If you've made it to the end of this post, this is your sign to choose your resolution for 2024 right now. Want to exercise daily? Start by practicing it weekly and progress to alternative days. Want to spend more time with family? Start by planning your winter holidays. Also, surround yourself with people who share similar interests. Believe it or not, you are influenced greatly by the ones you spend time with! Happy New Year in advance and All the Best &lt;3</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">books</span>
+    <span class="tag-pill">habits</span>
+    <span class="tag-pill">reflections</span>
+    <span class="tag-pill">new year</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="my-canon-event.html">← Previous Post</a>
+    <a href="two-worlds.html">Next Post →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
