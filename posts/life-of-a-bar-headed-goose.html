@@ -17,7 +17,7 @@
     --body: 'DM Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
  
   nav {
     display: flex; justify-content: space-between; align-items: center;
@@ -73,6 +73,7 @@
     background: linear-gradient(135deg, #d4b896, #b8956a);
     display: flex; align-items: center; justify-content: center;
     color: var(--muted); font-size: 14px; font-style: italic;
+    text-align: center; padding: 0 20px;
   }
  
   .article-body p {
@@ -96,7 +97,7 @@
  
   .bottom-nav {
     margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
   }
   .bottom-nav a {
     text-decoration: none; color: var(--muted); font-size: 13px;
@@ -104,8 +105,24 @@
   }
   .bottom-nav a:hover { color: var(--accent); }
  
-  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
   footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Media Queries */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    
+    .article-wrap { padding: 0 20px 60px; }
+    .article-header h1 { font-size: 32px; }
+    .article-desc { font-size: 16px; }
+    .cover-img { height: 240px; margin-bottom: 32px; }
+    
+    .article-body p { font-size: 16px; margin-bottom: 24px; }
+    .article-body p:first-child::first-letter { font-size: 48px; margin-top: 4px; }
+    
+    footer { padding: 32px 20px; flex-direction: column; text-align: center; gap: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -124,7 +141,6 @@
   <a href="../index.html" class="back-link">← Back to all posts</a>
  
   <header class="article-header">
-    <span class="article-tag">Experiences</span>
     <h1>Life of a Bar-headed Goose</h1>
     <p class="article-desc">My first qualitative research project forced me to study migration and identity, and turned into something unexpectedly personal for an ex-NRI trying to grow in the land of banyans and neem trees.</p>
     <div class="article-meta">
@@ -171,7 +187,7 @@
  
 <footer>
   <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
-  <p>© 2025 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
 </footer>
  
 </body>
