@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Groups: A bad idea? | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+  .nav-links a:hover { color: var(--accent); }
+  
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+    margin: 32px 0 0 0; transition: color 0.2s; padding: 6px 0;
+  }
+  .back-link:hover { color: var(--accent); }
+  
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 80px; }
+  
+  .article-header { padding: 32px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  
+  .article-header h1 {
+    font-family: var(--heading); font-size: 42px;
+    line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 18px;
+  }
+  
+  .article-desc {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; font-style: italic; margin-bottom: 24px;
+  }
+  
+  .article-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--muted); flex-wrap: wrap;
+  }
+  .article-meta::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+  
+  .article-body p {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 28px;
+    word-break: break-word;
+  }
+  
+  .article-body ol {
+    margin-left: 20px; margin-bottom: 28px;
+  }
+  
+  .article-body li {
+    font-size: 17px; line-height: 1.85; color: #2a1e10; margin-bottom: 16px;
+  }
+  
+  .article-body p:first-of-type::first-letter {
+    font-family: var(--heading); font-size: 56px; font-weight: 700;
+    float: left; line-height: 0.85; margin: 6px 10px 0 0; color: var(--accent);
+  }
+  
+  .tags-row {
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tags-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .tag-pill {
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); background: white; margin-bottom: 4px; display: inline-block;
+  }
+  
+  .bottom-nav {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .bottom-nav a {
+    text-decoration: none; color: var(--muted); font-size: 13px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s;
+    padding: 8px 0;
+  }
+  .bottom-nav a:hover { color: var(--accent); }
+  
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 16px;
+      gap: 12px;
+      text-align: center;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .article-wrap {
+      padding: 0 16px 60px;
+    }
+    .article-header h1 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    .article-desc {
+      font-size: 16px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bottom-nav {
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+    footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 16px;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<nav>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
+<div class="article-wrap">
+  
+  <a href="../index.html" class="back-link">← Back to all posts</a>
+  
+  <header class="article-header">
+    <h1>Study Groups: A bad idea?</h1>
+    <p class="article-desc">We sat down to revise the mechanism of monsoon. Somehow we ended up planning a trip to Goa. There was a Geography exam the next day.</p>
+    <div class="article-meta">
+      <span>Nakshatra RP</span>
+      <span>·</span>
+      <span>Feb 11, 2021</span>
+      <span>·</span>
+      <span>2 min read</span>
+    </div>
+  </header>
+  
+  <article class="article-body">
+  
+    <p>"Hey, can we meet tomorrow and study together?", asked my friend as the class got over. "Yeah, sure", I replied. We fixed the time and called few more friends. We came with our books the next day but it eventually turned out into a hangout session. At first, we discussed about the mechanism of monsoon but I don't have any possible explanations on how we ended up planning a trip to Goa in the future. It was a tragedy as we had Geography exam the next day. The only friend in our group who actually wanted to study started freaking out, but her concentration was also bid farewell long back. I learnt a lesson that lessons can't be learnt with friends. But this was not a new thing. Teachers had always been against studying in groups. But are study groups always useless?</p>
+  
+    <p>Study groups are definitely useless if the people who are studying with you are not committed to achieving good grades. But there had been instances when studying with others had actually given me good grades! Based on my experiences, here are few tips on how to conduct a productive group study session:</p>
+  
+    <ol>
+      <li><strong>Prepare early:</strong> Study groups are often distractive when no one has a clue what they're going to study and when they hear about the concepts for the first time. The best way to study is to learn the materials by yourself and then memorize them with friends. Suggest your friends to do the same so that they too won't be distracted.</li>
+      <li><strong>Stay organized:</strong> Studying with close friends can be a lot of freedom and it's really easy to go from sitting to sleeping position. Picking the right study environment is the key here. Avoid studying in a bedroom. A large area without noise would be perfect for everyone to study together. Avoid scattering study materials all over the place. Remember, having all the books and worksheets open in front of you will not give you instant intelligence.</li>
+      <li><strong>Plan breaks:</strong> By this tip, I don't mean that you should take a 1 hour break after studying for 5 minutes (that's what actually happens). Try the Pomodoro Technique in which you focus for 25 minutes, and take a 5-minute break at the end of the session. After four such pomodoros, you can take a break for half an hour. Nourish yourselves with snacks and music during these breaks to relax (Don't extend the break according to your comfort!).</li>
+      <li><strong>Equal participation:</strong> When you do a group study session, it is meant to benefit everyone equally. Avoid only one person teaching and the others listening. Let everyone have a chance to explain. If one person is unable to explain, help him/her and give your support so that they build their confidence.</li>
+      <li><strong>Conduct tests:</strong> You'll never know your preparation unless you test yourself. Utilize the resources given and answer questions individually by setting a timer. This will help everyone to understand their weak areas and study better.</li>
+    </ol>
+  
+    <p>Hope you have a great group study session!</p>
+  
+  </article>
+  
+  <div class="tags-row">
+    <span class="tags-label">Tags:</span>
+    <span class="tag-pill">study tips</span>
+    <span class="tag-pill">habits</span>
+    <span class="tag-pill">productivity</span>
+    <span class="tag-pill">student life</span>
+  </div>
+  
+  <div class="bottom-nav">
+    <a href="who-is-the-game-addict-among-us.html">← Previous Post</a>
+    <a href="../index.html">All Posts →</a>
+  </div>
+</div>
+  
+<footer>
+  <a href="../index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+  
+</body>
+</html>
