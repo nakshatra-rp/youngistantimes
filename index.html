@@ -19,6 +19,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
 
+  /* NAV */
   nav {
     display: flex; justify-content: space-between; align-items: center;
     padding: 14px 48px; border-bottom: 1px solid var(--border);
@@ -40,13 +41,29 @@
   .search-wrap input:focus { border-color: var(--accent); }
   .search-wrap input::placeholder { color: var(--muted); }
   .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; pointer-events: none; }
-  .no-results { display: none; text-align: center; padding: 40px; color: var(--muted); font-size: 15px; font-style: italic; }
 
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+  .mobile-menu { display: none; flex-direction: column; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  .mobile-search { display: none; padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--bg); }
+  .mobile-search.open { display: block; }
+  .mobile-search-wrap { position: relative; }
+  .mobile-search input { width: 100%; padding: 9px 16px 9px 40px; border: 1px solid var(--border); border-radius: 999px; background: white; font-family: var(--body); font-size: 14px; color: var(--ink); outline: none; }
+  .mobile-search input:focus { border-color: var(--accent); }
+  .mobile-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; }
+
+  /* HERO */
   .hero { text-align: center; padding: 56px 48px 40px; border-bottom: 1px solid var(--border); }
   .hero-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .hero h1 { font-family: var(--heading); font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; margin-bottom: 14px; }
   .hero p { font-size: 16px; color: var(--muted); max-width: 500px; margin: 0 auto; }
 
+  /* MAIN LAYOUT */
   .main-layout { display: grid; grid-template-columns: 1fr 290px; max-width: 1100px; margin: 0 auto; padding: 44px 32px; }
   .featured-post { padding-right: 44px; border-right: 1px solid var(--border); }
 
@@ -64,105 +81,85 @@
   .read-more { display: inline-block; margin-top: 18px; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: opacity 0.2s; }
   .read-more:hover { opacity: 0.7; }
 
+  /* SIDEBAR */
   .sidebar { padding-left: 32px; }
   .about-card { background: var(--highlight); border: 1px solid var(--border); border-radius: 4px; padding: 20px; margin-bottom: 28px; text-align: center; }
   .author-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: white; font-family: var(--heading); font-size: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
   .about-card h3 { font-family: var(--heading); font-size: 16px; margin-bottom: 6px; }
   .about-card p { font-size: 12px; color: var(--muted); line-height: 1.6; font-style: italic; }
 
-  .small-post { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--border); }
-  .small-post:last-child { border-bottom: none; }
+  a.small-post { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: opacity 0.2s; }
+  a.small-post:last-child { border-bottom: none; }
+  a.small-post:hover { opacity: 0.75; }
   .small-thumb { width: 68px; height: 68px; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; }
   .small-post-info h3 { font-family: var(--heading); font-size: 14px; line-height: 1.3; margin-bottom: 4px; }
   .small-post-desc { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 4px; }
   .small-post-meta { font-size: 11px; color: var(--muted); opacity: 0.8; }
 
+  /* POST GRID */
   .post-grid { max-width: 1100px; margin: 0 auto; padding: 0 32px 64px; border-top: 1px solid var(--border); padding-top: 44px; }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .grid-card { cursor: pointer; }
+  .no-results { display: none; text-align: center; padding: 40px; color: var(--muted); font-size: 15px; font-style: italic; }
+
+  a.grid-card { text-decoration: none; color: inherit; display: block; transition: opacity 0.2s; }
+  a.grid-card:hover { opacity: 0.75; }
   .grid-thumb { width: 100%; height: 130px; border-radius: 4px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
-  .grid-card h3 { font-family: var(--heading); font-size: 16px; line-height: 1.3; margin-bottom: 6px; }
+  a.grid-card h3 { font-family: var(--heading); font-size: 16px; line-height: 1.3; margin-bottom: 6px; }
   .grid-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
   .grid-meta { font-size: 11px; color: var(--muted); opacity: 0.8; }
 
+  /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 13px; color: var(--muted); }
-  /* ========================================= */
-  /* MOBILE INTERFACE STYLES                   */
-  /* ========================================= */
+
+  /* =====================
+     MOBILE STYLES
+     Applies on screens 768px wide or less
+  ===================== */
   @media (max-width: 768px) {
-    /* 1. Navigation: Stack items on top of each other */
-    nav {
-      flex-direction: column;
-      padding: 16px;
-      gap: 16px;
-    }
-    .search-wrap {
-      width: 100%;
-      max-width: 100%;
-    }
-    .nav-links {
-      width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
 
-    /* 2. Hero Section: Make text smaller and reduce padding */
-    .hero {
-      padding: 40px 24px 32px;
-    }
-    .hero h1 {
-      font-size: 38px;
-    }
+    /* Nav */
+    nav { padding: 14px 20px; flex-wrap: wrap; }
+    .nav-links { display: none; }
+    .search-wrap { display: none; }
+    .hamburger { display: flex; }
 
-    /* 3. Main Layout: Change from 2 columns to 1 column */
-    .main-layout {
-      grid-template-columns: 1fr; /* 1 single column */
-      padding: 32px 24px;
-    }
-    
-    /* Remove the line separating the left and right sides */
-    .featured-post {
-      padding-right: 0;
-      border-right: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 40px;
-      margin-bottom: 40px;
-    }
-    .sidebar {
-      padding-left: 0;
-    }
+    /* Hero */
+    .hero { padding: 40px 20px 32px; }
+    .hero h1 { font-size: 34px; letter-spacing: -0.5px; }
+    .hero p { font-size: 15px; }
 
-    /* 4. Grid Section: Change from 3 columns to 1 column */
-    .post-grid {
-      padding: 32px 24px 64px;
-    }
-    .grid {
-      grid-template-columns: 1fr; 
-    }
+    /* Main layout: single column */
+    .main-layout { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; }
 
-    /* 5. Footer: Stack and center */
-    footer {
-      flex-direction: column;
-      padding: 24px;
-      gap: 12px;
-      text-align: center;
-    }
+    /* Featured post */
+    .featured-post { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
+    .featured-img-box { height: 200px; }
+    .featured-post h2 { font-size: 24px; }
 
-    /* 6. Post/About/Contact Pages Mobile Fixes */
-    .page-container, .post-header, .post-content {
-      padding: 0 24px;
-      margin-top: 40px;
-    }
-    .post-header h1, .page-container h1 {
-      font-size: 36px;
-    }
-    .hero-image {
-      border-radius: 0; /* Lets the image stretch edge-to-edge on phones */
-      height: 250px;
-      margin-bottom: 32px;
-    }
+    /* Sidebar */
+    .sidebar { padding-left: 0; }
+    .about-card { display: none; }
+    .small-thumb { width: 60px; height: 60px; }
+
+    /* Post grid: single column with horizontal cards */
+    .post-grid { padding: 32px 20px 48px; }
+    .grid { grid-template-columns: 1fr; gap: 0; }
+
+    a.grid-card { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    a.grid-card:last-child { border-bottom: none; }
+    .grid-thumb { width: 80px; height: 80px; flex-shrink: 0; margin-bottom: 0; font-size: 18px; }
+    .grid-card-text { flex: 1; }
+    a.grid-card h3 { font-size: 15px; margin-bottom: 4px; }
+    .grid-desc { font-size: 12px; }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
+  }
+
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 28px; }
+    .featured-post h2 { font-size: 22px; }
   }
 </style>
 </head>
@@ -179,7 +176,23 @@
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-search" id="mobileSearch">
+  <div class="mobile-search-wrap">
+    <span class="mobile-search-icon">🔍</span>
+    <input type="text" id="mobileSearchInput" placeholder="Search posts..." />
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
 
 <section class="hero">
   <p class="hero-label">Blog by a Teenager</p>
@@ -188,6 +201,7 @@
 </section>
 
 <div class="main-layout">
+
   <main class="featured-post"
     data-title="Life of a Bar-headed Goose"
     data-desc="My first qualitative research project forced me to study migration and identity, and turned into something unexpectedly personal for an ex-NRI trying to grow in the land of banyans and neem trees.">
@@ -212,32 +226,38 @@
     </div>
     <p class="section-label">Recent Posts</p>
 
-    <div class="small-post" data-title="A Hapi Experience" data-desc="An internship at a pediatric therapy centre, a zoo trip I did not sign up for, and a five-year-old who taught me more about gratitude than any psychology textbook ever could.">
+    <a class="small-post" href="posts/a-hapi-experience.html"
+      data-title="A Hapi Experience"
+      data-desc="An internship at a pediatric therapy centre, a zoo trip I did not sign up for, and a five-year-old who taught me more about gratitude than any psychology textbook ever could.">
       <div class="small-thumb" style="background:#e8f0f5;">☕</div>
       <div class="small-post-info">
         <h3>A Hapi Experience</h3>
         <p class="small-post-desc">An internship at a pediatric therapy centre, a zoo trip I did not sign up for, and a five-year-old who taught me more about gratitude than any psychology textbook ever could.</p>
         <p class="small-post-meta">May 28, 2025 · 3 min read</p>
       </div>
-    </div>
+    </a>
 
-    <div class="small-post" data-title="Once Upon A Semester..." data-desc="Six months of university life summed up: an escape room I didn't solve, shrinking limbs, zero snooze buttons, and somehow still surviving long enough to write about it.">
+    <a class="small-post" href="posts/once-upon-a-semester.html"
+      data-title="Once Upon A Semester..."
+      data-desc="Six months of university life summed up: an escape room I didn't solve, shrinking limbs, zero snooze buttons, and somehow still surviving long enough to write about it.">
       <div class="small-thumb" style="background:#f0ece4;">🎓</div>
       <div class="small-post-info">
         <h3>Once Upon A Semester...</h3>
         <p class="small-post-desc">Six months of university life summed up: an escape room I didn't solve, shrinking limbs, zero snooze buttons, and somehow still surviving long enough to write about it.</p>
         <p class="small-post-meta">Jan 4, 2025 · 2 min read</p>
       </div>
-    </div>
+    </a>
 
-    <div class="small-post" data-title="My Canon Event" data-desc="A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.">
+    <a class="small-post" href="posts/my-canon-event.html"
+      data-title="My Canon Event"
+      data-desc="A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.">
       <div class="small-thumb" style="background:#f5ede8;">✏️</div>
       <div class="small-post-info">
         <h3>My Canon Event</h3>
         <p class="small-post-desc">A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.</p>
         <p class="small-post-meta">May 31, 2024 · 2 min read</p>
       </div>
-    </div>
+    </a>
   </aside>
 </div>
 
@@ -245,124 +265,192 @@
   <p class="section-label">More to Read</p>
   <div class="grid" id="postGrid">
 
-    <article class="grid-card" data-title="The Resolution That Worked Out" data-desc="I have a zero percent success rate with New Year's resolutions, until 2023, when I accidentally cracked the formula. Spoiler: start before January.">
+    <a class="grid-card" href="posts/the-resolution-that-worked-out.html"
+      data-title="The Resolution That Worked Out"
+      data-desc="I have a zero percent success rate with New Year's resolutions, until 2023, when I accidentally cracked the formula. Spoiler: start before January.">
       <div class="grid-thumb" style="background:#f0ece4;">📖</div>
-      <h3>The Resolution That Worked Out</h3>
-      <p class="grid-desc">I have a zero percent success rate with New Year's resolutions, until 2023, when I accidentally cracked the formula. Spoiler: start before January.</p>
-      <p class="grid-meta">Dec 4, 2023 · 3 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>The Resolution That Worked Out</h3>
+        <p class="grid-desc">I have a zero percent success rate with New Year's resolutions, until 2023, when I accidentally cracked the formula. Spoiler: start before January.</p>
+        <p class="grid-meta">Dec 4, 2023 · 3 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Two Worlds" data-desc="Written in the lounge of Trivandrum International Airport, suspended between two places I call home. Airports are the only places that take your feelings away from you for a while.">
+    <a class="grid-card" href="posts/two-worlds.html"
+      data-title="Two Worlds"
+      data-desc="Written in the lounge of Trivandrum International Airport, suspended between two places I call home. Airports are the only places that take your feelings away from you for a while.">
       <div class="grid-thumb" style="background:#e8f0e8;">✈️</div>
-      <h3>Two Worlds</h3>
-      <p class="grid-desc">Written in the lounge of Trivandrum International Airport, suspended between two places I call home. Airports are the only places that take your feelings away from you for a while.</p>
-      <p class="grid-meta">Oct 1, 2023 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Two Worlds</h3>
+        <p class="grid-desc">Written in the lounge of Trivandrum International Airport, suspended between two places I call home. Airports are the only places that take your feelings away from you for a while.</p>
+        <p class="grid-meta">Oct 1, 2023 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="AI Revolution: Will We Survive?" data-desc="M3GAN the killer robot is fictional. ChatGPT the killer essayist is not. A teenager's honest take on whether AI is actually a threat or just a mirror for our own unoriginal ideas.">
+    <a class="grid-card" href="posts/ai-revolution-will-we-survive.html"
+      data-title="AI Revolution: Will We Survive?"
+      data-desc="M3GAN the killer robot is fictional. ChatGPT the killer essayist is not. A teenager's honest take on whether AI is actually a threat or just a mirror for our own unoriginal ideas.">
       <div class="grid-thumb" style="background:#f5ede8;">🤖</div>
-      <h3>AI Revolution: Will We Survive?</h3>
-      <p class="grid-desc">M3GAN the killer robot is fictional. ChatGPT the killer essayist is not. A teenager's honest take on whether AI is actually a threat or just a mirror for our own unoriginal ideas.</p>
-      <p class="grid-meta">Mar 29, 2023 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>AI Revolution: Will We Survive?</h3>
+        <p class="grid-desc">M3GAN the killer robot is fictional. ChatGPT the killer essayist is not. A teenager's honest take on whether AI is actually a threat or just a mirror for our own unoriginal ideas.</p>
+        <p class="grid-meta">Mar 29, 2023 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="So Close, Yet Far Apart" data-desc="My mother's kitchen monologue about her childhood made me realise what social media actually does. It lets us watch people drift away in real time, without ever losing contact.">
+    <a class="grid-card" href="posts/so-close-yet-far-apart.html"
+      data-title="So Close, Yet Far Apart"
+      data-desc="My mother's kitchen monologue about her childhood made me realise what social media actually does. It lets us watch people drift away in real time, without ever losing contact.">
       <div class="grid-thumb" style="background:#eeeaf5;">📱</div>
-      <h3>So Close, Yet Far Apart</h3>
-      <p class="grid-desc">My mother's kitchen monologue about her childhood made me realise what social media actually does. It lets us watch people drift away in real time, without ever losing contact.</p>
-      <p class="grid-meta">Feb 18, 2023 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>So Close, Yet Far Apart</h3>
+        <p class="grid-desc">My mother's kitchen monologue about her childhood made me realise what social media actually does. It lets us watch people drift away in real time, without ever losing contact.</p>
+        <p class="grid-meta">Feb 18, 2023 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="FIFA 2022: Non Football Fan Edition" data-desc="I have never watched a full sports match in my life. Then Messi happened, Argentina happened, and suddenly I was screaming at a penalty shootout with the rest of the world.">
+    <a class="grid-card" href="posts/fifa-non-football-fan-edition.html"
+      data-title="FIFA 2022: Non Football Fan Edition"
+      data-desc="I have never watched a full sports match in my life. Then Messi happened, Argentina happened, and suddenly I was screaming at a penalty shootout with the rest of the world.">
       <div class="grid-thumb" style="background:#faf0e0;">⚽</div>
-      <h3>FIFA 2022: Non Football Fan Edition</h3>
-      <p class="grid-desc">I have never watched a full sports match in my life. Then Messi happened, Argentina happened, and suddenly I was screaming at a penalty shootout with the rest of the world.</p>
-      <p class="grid-meta">Dec 19, 2022 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>FIFA 2022: Non Football Fan Edition</h3>
+        <p class="grid-desc">I have never watched a full sports match in my life. Then Messi happened, Argentina happened, and suddenly I was screaming at a penalty shootout with the rest of the world.</p>
+        <p class="grid-meta">Dec 19, 2022 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Class X Board Exam: Detailed Guide" data-desc="I scored 97.8% in my CBSE boards without waking up at 6am or studying for 12 hours. Here are the myths I would like to formally put to rest, and some secrets no topper talks about.">
+    <a class="grid-card" href="posts/class-x-board-exam-detailed-guide.html"
+      data-title="Class X Board Exam: Detailed Guide"
+      data-desc="I scored 97.8% in my CBSE boards without waking up at 6am or studying for 12 hours. Here are the myths I would like to formally put to rest, and some secrets no topper talks about.">
       <div class="grid-thumb" style="background:#e8f0f5;">📝</div>
-      <h3>Class X Board Exam: Detailed Guide</h3>
-      <p class="grid-desc">I scored 97.8% in my CBSE boards without waking up at 6am or studying for 12 hours. Here are the myths I would like to formally put to rest, and some secrets no topper talks about.</p>
-      <p class="grid-meta">Jul 29, 2022 · 5 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Class X Board Exam: Detailed Guide</h3>
+        <p class="grid-desc">I scored 97.8% in my CBSE boards without waking up at 6am or studying for 12 hours. Here are the myths I would like to formally put to rest, and some secrets no topper talks about.</p>
+        <p class="grid-meta">Jul 29, 2022 · 5 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title='The "Dramatic but Fun" Life in India' data-desc="A sequel to my NRI survival diary. This time: board exam results, the Humanities stream, undercover journalist aunties, and why privacy in India is simply an illusion.">
+    <a class="grid-card" href="posts/the-dramatic-but-fun-life-in-india.html"
+      data-title='The "Dramatic but Fun" Life in India'
+      data-desc="A sequel to my NRI survival diary. This time: board exam results, the Humanities stream, undercover journalist aunties, and why privacy in India is simply an illusion.">
       <div class="grid-thumb" style="background:#f5e8e3;">🇮🇳</div>
-      <h3>The "Dramatic but Fun" Life in India</h3>
-      <p class="grid-desc">A sequel to my NRI survival diary. This time: board exam results, the Humanities stream, undercover journalist aunties, and why privacy in India is simply an illusion.</p>
-      <p class="grid-meta">Jul 8, 2022 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>The "Dramatic but Fun" Life in India</h3>
+        <p class="grid-desc">A sequel to my NRI survival diary. This time: board exam results, the Humanities stream, undercover journalist aunties, and why privacy in India is simply an illusion.</p>
+        <p class="grid-meta">Jul 8, 2022 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="EdTech Apps vs Education Boards" data-desc="Byju's promised me Shah Rukh Khan and a love for learning. My CBSE board wanted keywords and NCERT sentences. These are not the same thing.">
+    <a class="grid-card" href="posts/edtech-apps-vs-education-boards.html"
+      data-title="EdTech Apps vs Education Boards"
+      data-desc="Byju's promised me Shah Rukh Khan and a love for learning. My CBSE board wanted keywords and NCERT sentences. These are not the same thing.">
       <div class="grid-thumb" style="background:#e8f5ec;">💻</div>
-      <h3>EdTech Apps vs Education Boards</h3>
-      <p class="grid-desc">Byju's promised me Shah Rukh Khan and a love for learning. My CBSE board wanted keywords and NCERT sentences. These are not the same thing.</p>
-      <p class="grid-meta">Mar 9, 2022 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>EdTech Apps vs Education Boards</h3>
+        <p class="grid-desc">Byju's promised me Shah Rukh Khan and a love for learning. My CBSE board wanted keywords and NCERT sentences. These are not the same thing.</p>
+        <p class="grid-meta">Mar 9, 2022 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Procrastinate the Procrastination?" data-desc="I delayed writing this post about procrastination for several months. If that is not peer-reviewed research, I genuinely do not know what is. Here is what I actually found out.">
+    <a class="grid-card" href="posts/procrastinate-the-procrastination.html"
+      data-title="Procrastinate the Procrastination?"
+      data-desc="I delayed writing this post about procrastination for several months. If that is not peer-reviewed research, I genuinely do not know what is. Here is what I actually found out.">
       <div class="grid-thumb" style="background:#f5f0e8;">⏳</div>
-      <h3>Procrastinate the Procrastination?</h3>
-      <p class="grid-desc">I delayed writing this post about procrastination for several months. If that is not peer-reviewed research, I genuinely do not know what is. Here is what I actually found out.</p>
-      <p class="grid-meta">Jan 23, 2022 · 3 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Procrastinate the Procrastination?</h3>
+        <p class="grid-desc">I delayed writing this post about procrastination for several months. If that is not peer-reviewed research, I genuinely do not know what is. Here is what I actually found out.</p>
+        <p class="grid-meta">Jan 23, 2022 · 3 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Ignorance is not bliss, it's Fault" data-desc="We teach girls to protect themselves from men, but rarely teach boys to be better. On why the missing piece in the conversation about women's safety starts at home.">
+    <a class="grid-card" href="posts/ignorance-aint-bliss-its-fault.html"
+      data-title="Ignorance is not bliss, it's Fault"
+      data-desc="We teach girls to protect themselves from men, but rarely teach boys to be better. On why the missing piece in the conversation about women's safety starts at home.">
       <div class="grid-thumb" style="background:#f5e8e8;">✊</div>
-      <h3>Ignorance is not bliss, it's Fault</h3>
-      <p class="grid-desc">We teach girls to protect themselves from men, but rarely teach boys to be better. On why the missing piece in the conversation about women's safety starts at home.</p>
-      <p class="grid-meta">Aug 4, 2021 · 3 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Ignorance is not bliss, it's Fault</h3>
+        <p class="grid-desc">We teach girls to protect themselves from men, but rarely teach boys to be better. On why the missing piece in the conversation about women's safety starts at home.</p>
+        <p class="grid-meta">Aug 4, 2021 · 3 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="A Catastrophe Severe than the Pandemic" data-desc="Online classes: the era when we felt like caged animals, peak laziness was normalised, and a Geography session somehow turned into a Goa trip planning meeting.">
+    <a class="grid-card" href="posts/a-catastrophe-severe-than-the-pandemic.html"
+      data-title="A Catastrophe Severe than the Pandemic"
+      data-desc="Online classes: the era when we felt like caged animals, peak laziness was normalised, and a Geography session somehow turned into a Goa trip planning meeting.">
       <div class="grid-thumb" style="background:#e8ecf5;">🏠</div>
-      <h3>A Catastrophe Severe than the Pandemic</h3>
-      <p class="grid-desc">Online classes: the era when we felt like caged animals, peak laziness was normalised, and a Geography session somehow turned into a Goa trip planning meeting.</p>
-      <p class="grid-meta">Jun 9, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>A Catastrophe Severe than the Pandemic</h3>
+        <p class="grid-desc">Online classes: the era when we felt like caged animals, peak laziness was normalised, and a Geography session somehow turned into a Goa trip planning meeting.</p>
+        <p class="grid-meta">Jun 9, 2021 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title='The "Weird but Exciting" Life in India' data-desc="An NRI's honest field notes from Kerala holidays. Hartals, random relatives, wedding feasts, and the fine art of getting embarrassed in situations I never saw coming.">
+    <a class="grid-card" href="posts/the-weird-life-in-india.html"
+      data-title='The "Weird but Exciting" Life in India'
+      data-desc="An NRI's honest field notes from Kerala holidays. Hartals, random relatives, wedding feasts, and the fine art of getting embarrassed in situations I never saw coming.">
       <div class="grid-thumb" style="background:#f0f5e8;">🌴</div>
-      <h3>The "Weird but Exciting" Life in India</h3>
-      <p class="grid-desc">An NRI's honest field notes from Kerala holidays. Hartals, random relatives, wedding feasts, and the fine art of getting embarrassed in situations I never saw coming.</p>
-      <p class="grid-meta">Jun 4, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>The "Weird but Exciting" Life in India</h3>
+        <p class="grid-desc">An NRI's honest field notes from Kerala holidays. Hartals, random relatives, wedding feasts, and the fine art of getting embarrassed in situations I never saw coming.</p>
+        <p class="grid-meta">Jun 4, 2021 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Normalizing Mental Health Talks" data-desc="Mental health has become a great topic for Instagram captions but a terrible one for actual conversations. On why we need to do better and what that actually looks like.">
+    <a class="grid-card" href="posts/normalizing-mental-health-talks.html"
+      data-title="Normalizing Mental Health Talks"
+      data-desc="Mental health has become a great topic for Instagram captions but a terrible one for actual conversations. On why we need to do better and what that actually looks like.">
       <div class="grid-thumb" style="background:#f5e8f0;">🧠</div>
-      <h3>Normalizing Mental Health Talks</h3>
-      <p class="grid-desc">Mental health has become a great topic for Instagram captions but a terrible one for actual conversations. On why we need to do better and what that actually looks like.</p>
-      <p class="grid-meta">May 1, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Normalizing Mental Health Talks</h3>
+        <p class="grid-desc">Mental health has become a great topic for Instagram captions but a terrible one for actual conversations. On why we need to do better and what that actually looks like.</p>
+        <p class="grid-meta">May 1, 2021 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Comparison: When isn't it relevant?" data-desc="You cannot ask a banana to have the fibre content of an apple. So why do we keep asking children to be someone else's version of success? A case against comparison culture.">
+    <a class="grid-card" href="posts/comparison-when-isnt-it-relevant.html"
+      data-title="Comparison: When isn't it relevant?"
+      data-desc="You cannot ask a banana to have the fibre content of an apple. So why do we keep asking children to be someone else's version of success? A case against comparison culture.">
       <div class="grid-thumb" style="background:#eef5e8;">🍌</div>
-      <h3>Comparison: When isn't it relevant?</h3>
-      <p class="grid-desc">You cannot ask a banana to have the fibre content of an apple. So why do we keep asking children to be someone else's version of success? A case against comparison culture.</p>
-      <p class="grid-meta">Apr 5, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Comparison: When isn't it relevant?</h3>
+        <p class="grid-desc">You cannot ask a banana to have the fibre content of an apple. So why do we keep asking children to be someone else's version of success? A case against comparison culture.</p>
+        <p class="grid-meta">Apr 5, 2021 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title='"Are you the God of Hammers?": When Marvel taught us life lessons' data-desc="Thor losing his hammer, Carol Danvers breaking free. Turns out Marvel has been quietly teaching us things about potential and identity that no motivational poster ever managed to.">
+    <a class="grid-card" href="posts/when-marvel-taught-us-life-lessons.html"
+      data-title='"Are you the God of Hammers?": When Marvel taught us life lessons'
+      data-desc="Thor losing his hammer, Carol Danvers breaking free. Turns out Marvel has been quietly teaching us things about potential and identity that no motivational poster ever managed to.">
       <div class="grid-thumb" style="background:#f5eef0;">⚡</div>
-      <h3>"Are you the God of Hammers?": When Marvel taught us life lessons</h3>
-      <p class="grid-desc">Thor losing his hammer, Carol Danvers breaking free. Turns out Marvel has been quietly teaching us things about potential and identity that no motivational poster ever managed to.</p>
-      <p class="grid-meta">Feb 15, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>"Are you the God of Hammers?": When Marvel taught us life lessons</h3>
+        <p class="grid-desc">Thor losing his hammer, Carol Danvers breaking free. Turns out Marvel has been quietly teaching us things about potential and identity that no motivational poster ever managed to.</p>
+        <p class="grid-meta">Feb 15, 2021 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Who's the game addict among us?" data-desc="Among Us became more popular than a global pandemic in 2020 and I have a theory about why. It had nothing to do with spaceships and everything to do with loneliness.">
+    <a class="grid-card" href="posts/who-is-the-game-addict-among-us.html"
+      data-title="Who's the game addict among us?"
+      data-desc="Among Us became more popular than a global pandemic in 2020 and I have a theory about why. It had nothing to do with spaceships and everything to do with loneliness.">
       <div class="grid-thumb" style="background:#eef0f5;">🎮</div>
-      <h3>Who's the game addict among us?</h3>
-      <p class="grid-desc">Among Us became more popular than a global pandemic in 2020 and I have a theory about why. It had nothing to do with spaceships and everything to do with loneliness.</p>
-      <p class="grid-meta">Feb 12, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Who's the game addict among us?</h3>
+        <p class="grid-desc">Among Us became more popular than a global pandemic in 2020 and I have a theory about why. It had nothing to do with spaceships and everything to do with loneliness.</p>
+        <p class="grid-meta">Feb 12, 2021 · 2 min read</p>
+      </div>
+    </a>
 
-    <article class="grid-card" data-title="Study Groups: A bad idea?" data-desc="We sat down to revise the mechanism of monsoon. Somehow we ended up planning a trip to Goa. There was a Geography exam the next day. Study groups: a verdict.">
+    <a class="grid-card" href="posts/study-groups-a-bad-idea.html"
+      data-title="Study Groups: A bad idea?"
+      data-desc="We sat down to revise the mechanism of monsoon. Somehow we ended up planning a trip to Goa. There was a Geography exam the next day. Study groups: a verdict.">
       <div class="grid-thumb" style="background:#f0eef5;">📚</div>
-      <h3>Study Groups: A bad idea?</h3>
-      <p class="grid-desc">We sat down to revise the mechanism of monsoon. Somehow we ended up planning a trip to Goa. There was a Geography exam the next day. Study groups: a verdict.</p>
-      <p class="grid-meta">Feb 11, 2021 · 2 min read</p>
-    </article>
+      <div class="grid-card-text">
+        <h3>Study Groups: A bad idea?</h3>
+        <p class="grid-desc">We sat down to revise the mechanism of monsoon. Somehow we ended up planning a trip to Goa. There was a Geography exam the next day. Study groups: a verdict.</p>
+        <p class="grid-meta">Feb 11, 2021 · 2 min read</p>
+      </div>
+    </a>
 
   </div>
   <p class="no-results" id="noResults">No posts found for that search.</p>
@@ -374,28 +462,37 @@
 </footer>
 
 <script>
-  const input = document.getElementById('searchInput');
-  const noResults = document.getElementById('noResults');
-  function normalize(str) { return str.toLowerCase(); }
-  input.addEventListener('input', () => {
-    const q = normalize(input.value.trim());
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileSearch = document.getElementById('mobileSearch');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    mobileSearch.classList.toggle('open');
+  });
+
+  // Search — works on both desktop and mobile
+  function handleSearch(q) {
+    q = q.toLowerCase();
     let count = 0;
     const featured = document.querySelector('.featured-post');
-    const ft = normalize(featured.dataset.title + ' ' + featured.dataset.desc);
+    const ft = (featured.dataset.title + ' ' + featured.dataset.desc).toLowerCase();
     featured.style.display = (!q || ft.includes(q)) ? '' : 'none';
     if (!q || ft.includes(q)) count++;
-    document.querySelectorAll('.small-post').forEach(el => {
-      const t = normalize(el.dataset.title + ' ' + el.dataset.desc);
+    document.querySelectorAll('a.small-post').forEach(el => {
+      const t = (el.dataset.title + ' ' + el.dataset.desc).toLowerCase();
       el.style.display = (!q || t.includes(q)) ? '' : 'none';
       if (!q || t.includes(q)) count++;
     });
-    document.querySelectorAll('.grid-card').forEach(el => {
-      const t = normalize(el.dataset.title + ' ' + el.dataset.desc);
+    document.querySelectorAll('a.grid-card').forEach(el => {
+      const t = (el.dataset.title + ' ' + el.dataset.desc).toLowerCase();
       el.style.display = (!q || t.includes(q)) ? '' : 'none';
       if (!q || t.includes(q)) count++;
     });
-    noResults.style.display = count === 0 ? 'block' : 'none';
-  });
+    document.getElementById('noResults').style.display = count === 0 ? 'block' : 'none';
+  }
+  document.getElementById('searchInput').addEventListener('input', e => handleSearch(e.target.value.trim()));
+  document.getElementById('mobileSearchInput').addEventListener('input', e => handleSearch(e.target.value.trim()));
 </script>
 </body>
 </html>
