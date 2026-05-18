@@ -72,7 +72,6 @@
 
   .featured-img-box { width: 100%; height: 260px; border-radius: 4px; margin-bottom: 22px; background: linear-gradient(135deg, #d4b896, #c4a07a); display: flex; align-items: flex-end; position: relative; overflow: hidden; }
   .featured-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,8,0.45) 0%, transparent 60%); }
-  .featured-img-label { position: relative; z-index: 1; padding: 18px; color: white; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; }
 
   .featured-post h2 { font-family: var(--heading); font-size: 30px; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.5px; }
   .excerpt { color: var(--muted); font-size: 15px; margin-bottom: 18px; line-height: 1.7; }
@@ -112,37 +111,26 @@
   footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 13px; color: var(--muted); }
 
-  /* =====================
-     MOBILE STYLES
-     Applies on screens 768px wide or less
-  ===================== */
+  /* MOBILE */
   @media (max-width: 768px) {
-
-    /* Nav */
     nav { padding: 14px 20px; flex-wrap: wrap; }
     .nav-links { display: none; }
     .search-wrap { display: none; }
     .hamburger { display: flex; }
 
-    /* Hero */
     .hero { padding: 40px 20px 32px; }
     .hero h1 { font-size: 34px; letter-spacing: -0.5px; }
     .hero p { font-size: 15px; }
 
-    /* Main layout: single column */
     .main-layout { grid-template-columns: 1fr; padding: 32px 20px; gap: 40px; }
-
-    /* Featured post */
     .featured-post { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
     .featured-img-box { height: 200px; }
     .featured-post h2 { font-size: 24px; }
 
-    /* Sidebar */
     .sidebar { padding-left: 0; }
     .about-card { display: none; }
     .small-thumb { width: 60px; height: 60px; }
 
-    /* Post grid: single column with horizontal cards */
     .post-grid { padding: 32px 20px 48px; }
     .grid { grid-template-columns: 1fr; gap: 0; }
 
@@ -153,7 +141,6 @@
     a.grid-card h3 { font-size: 15px; margin-bottom: 4px; }
     .grid-desc { font-size: 12px; }
 
-    /* Footer */
     footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
   }
 
@@ -205,12 +192,16 @@
   <main class="featured-post"
     data-title="Life of a Bar-headed Goose"
     data-desc="My first qualitative research project forced me to study migration and identity, and turned into something unexpectedly personal for an ex-NRI trying to grow in the land of banyans and neem trees.">
-    <p class="section-label">Latest Post</p>
-<div class="featured-img-box" style="position: relative; background: none;">
-  <img src="me.png" alt="Featured blog photo" width="100%" height="100%" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-  <div class="featured-img-overlay" style="z-index: 1;"></div>
-  <span class="featured-img-label" style="z-index: 2;"> Featured · Dec 2025</span>
-</div>
+
+    <!-- CHANGE 1: "Latest Post" renamed to "Featured Post" -->
+    <p class="section-label">Featured Post</p>
+
+    <!-- CHANGE 2: removed the label text from inside the image box -->
+    <div class="featured-img-box" style="position: relative; background: none;">
+      <img src="me.png" alt="Featured blog photo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <div class="featured-img-overlay" style="z-index: 1;"></div>
+    </div>
+
     <h2>Life of a Bar-headed Goose</h2>
     <p class="excerpt">My first qualitative research project forced me to study migration and identity, and turned into something unexpectedly personal for an ex-NRI trying to grow in the land of banyans and neem trees.</p>
     <div class="post-meta">
@@ -221,6 +212,18 @@
 
   <aside class="sidebar">
     <p class="section-label">Recent Posts</p>
+
+    <!-- CHANGE 4: New post added at the top of Recent Posts -->
+    <a class="small-post" href="posts/birth-of-a-blogger.html"
+      data-title="Birth Of A Blogger"
+      data-desc="Finally getting a platform to express freely but realizing website builders are not really free? Solution: Vibe code it by myself!">
+      <div class="small-thumb" style="background:#fef3e2;">✍️</div>
+      <div class="small-post-info">
+        <h3>Birth Of A Blogger</h3>
+        <p class="small-post-desc">Finally getting a platform to express freely but realizing website builders are not really free? Solution: Vibe code it by myself!</p>
+        <p class="small-post-meta">May 18, 2026 · 2 min read</p>
+      </div>
+    </a>
 
     <a class="small-post" href="posts/a-hapi-experience.html"
       data-title="A Hapi Experience"
@@ -244,22 +247,26 @@
       </div>
     </a>
 
-    <a class="small-post" href="posts/my-canon-event.html"
-      data-title="My Canon Event"
-      data-desc="A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.">
-      <div class="small-thumb" style="background:#f5ede8;">✏️</div>
-      <div class="small-post-info">
-        <h3>My Canon Event</h3>
-        <p class="small-post-desc">A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.</p>
-        <p class="small-post-meta">May 31, 2024 · 2 min read</p>
-      </div>
-    </a>
+    <!-- CHANGE 3: "My Canon Event" moved to the grid below -->
+
   </aside>
 </div>
 
 <section class="post-grid">
   <p class="section-label">More to Read</p>
   <div class="grid" id="postGrid">
+
+    <!-- CHANGE 3: My Canon Event added here first -->
+    <a class="grid-card" href="posts/my-canon-event.html"
+      data-title="My Canon Event"
+      data-desc="A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.">
+      <div class="grid-thumb" style="background:#f5ede8;">✏️</div>
+      <div class="grid-card-text">
+        <h3>My Canon Event</h3>
+        <p class="grid-desc">A Grade 5 English teacher who saw something worth nurturing in a girl who wouldn't stop talking in class. This one is for her.</p>
+        <p class="grid-meta">May 31, 2024 · 2 min read</p>
+      </div>
+    </a>
 
     <a class="grid-card" href="posts/the-resolution-that-worked-out.html"
       data-title="The Resolution That Worked Out"
@@ -373,7 +380,7 @@
 
     <a class="grid-card" href="posts/a-catastrophe-severe-than-the-pandemic.html"
       data-title="A Catastrophe Severe than the Pandemic"
-      data-desc="Online classes: the era when we felt like caged animals, peak laziness was normalised, and a Geography session somehow turned into a trip planning meeting.">
+      data-desc="Online classes: the era when we felt like caged animals, peak laziness was normalised, and a study session somehow turned into a trip planning meeting.">
       <div class="grid-thumb" style="background:#e8ecf5;">🏠</div>
       <div class="grid-card-text">
         <h3>A Catastrophe Severe than the Pandemic</h3>
@@ -458,7 +465,6 @@
 </footer>
 
 <script>
-  // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileSearch = document.getElementById('mobileSearch');
@@ -467,7 +473,6 @@
     mobileSearch.classList.toggle('open');
   });
 
-  // Search — works on both desktop and mobile
   function handleSearch(q) {
     q = q.toLowerCase();
     let count = 0;
