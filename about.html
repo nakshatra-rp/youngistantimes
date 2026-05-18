@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Youngistan Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --ink: #1a1208;
+    --muted: #7a6e5f;
+    --accent: #c8440a;
+    --highlight: #fff3e0;
+    --border: #e8e0d0;
+    --heading: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px; border-bottom: 1px solid var(--border);
+    background: var(--bg); position: sticky; top: 0; z-index: 100; gap: 16px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.active { color: var(--accent); }
+
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+  .mobile-menu { display: none; flex-direction: column; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  /* PAGE WRAPPER */
+  .page-wrap { max-width: 780px; margin: 0 auto; padding: 64px 32px 80px; }
+
+  /* TOP LABEL */
+  .page-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 48px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .page-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* INTRO BLOCK: photo + name side by side */
+  .intro {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 56px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .photo-wrap { position: relative; }
+
+  /* Replace this div with an <img> tag when you have a photo:
+     <img src="me.png" alt="Nakshatra RP" class="photo"> */
+  .photo {
+    width: 180px; height: 180px; border-radius: 4px;
+    background: linear-gradient(135deg, #d4b896, #c4a07a);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--heading); font-size: 56px; color: white;
+    font-weight: 700;
+  }
+
+  .photo-caption {
+    font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--muted); text-align: center; margin-top: 10px;
+  }
+
+  .intro-text h1 {
+    font-family: var(--heading);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .intro-text .subtitle {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .intro-text p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ABOUT BODY */
+  .about-body { margin-bottom: 56px; }
+
+  .about-body p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #2a1e10;
+    margin-bottom: 24px;
+  }
+
+  .about-body p:first-child::first-letter {
+    font-family: var(--heading);
+    font-size: 52px;
+    font-weight: 700;
+    float: left;
+    line-height: 0.85;
+    margin: 6px 10px 0 0;
+    color: var(--accent);
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 18px 28px;
+    margin: 36px 0;
+    background: var(--highlight);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-family: var(--heading);
+    font-size: 20px !important;
+    font-style: italic;
+    color: var(--ink) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+  }
+  .pull-quote p::first-letter { all: unset; }
+
+  /* STATS ROW */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .stat {
+    background: var(--bg);
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: var(--heading);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+  }
+
+  /* TOPICS I WRITE ABOUT */
+  .topics { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+  .topics h2 {
+    font-family: var(--heading);
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .topic-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: white;
+  }
+  .topic-emoji { font-size: 20px; }
+  .topic-item span { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+  /* BACK TO BLOG */
+  .cta {
+    text-align: center;
+    padding: 40px;
+    background: var(--highlight);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .cta p {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 26px 48px; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; flex-wrap: wrap; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .page-wrap { padding: 40px 20px 60px; }
+
+    .intro { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+    .photo { width: 140px; height: 140px; margin: 0 auto; font-size: 44px; }
+    .intro-text h1 { font-size: 32px; }
+
+    .stats { grid-template-columns: repeat(3, 1fr); }
+    .stat-number { font-size: 28px; }
+
+    .topic-grid { grid-template-columns: 1fr; }
+
+    footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-wrap">
+
+  <p class="page-label">About Me</p>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="photo-wrap">
+      <!-- Replace nak.jpeg with your actual photo file once uploaded to GitHub -->
+      <img src="nak.jpeg" alt="Nakshatra RP" style="width:180px;height:180px;object-fit:cover;border-radius:4px;">
+      <p class="photo-caption">Nakshatra RP</p>
+    </div>
+    <div class="intro-text">
+      <h1>Hey, I'm Nakshatra.</h1>
+      <p class="subtitle">Psychology Student · Writer · Thinker</p>
+      <p>A psychology student and multi-passionate individual, and above all, your typical brown girl.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT BODY -->
+  <div class="about-body">
+    <p>I have been documenting my opinions and thoughts on this blog since 9th grade, and I consider it a free space for my voice. It is also a voice that represents many teenagers and young adults navigating through this confusing phase of life. I hope you find it relatable and thank you for checking my blog out!</p>
+
+    <div class="pull-quote">
+      <p>"Half a cup of overthinking, five tablespoons of passion and three tablespoons of writing skills."</p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-number">21</span>
+      <span class="stat-label">Posts written</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">5+</span>
+      <span class="stat-label">Years blogging</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">Thoughts per day</span>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="topics">
+    <h2>What I write about</h2>
+    <div class="topic-grid">
+      <div class="topic-item">
+        <span class="topic-emoji">🧠</span>
+        <span>Psychology & Mental Health</span>
+      </div>
+      <div class="topic-item">
+        <span class="topic-emoji">✈️</span>
+        <span>NRI Life & Experiences</span>
+      </div>
+      <div class="topic-item">
+        <span class="topic-emoji">📚</span>
+        <span>Education & Student Life</span>
+      </div>
+      <div class="topic-item">
+        <span class="topic-emoji">🌍</span>
+        <span>Hot Topics & Society</span>
+      </div>
+      <div class="topic-item">
+        <span class="topic-emoji">🎓</span>
+        <span>University & Growing Up</span>
+      </div>
+      <div class="topic-item">
+        <span class="topic-emoji">✍️</span>
+        <span>Personal Reflections</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <p>Now that you know a little about me, come read what I actually think about things.</p>
+    <a href="index.html" class="cta-btn">Read the Blog →</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="nav-logo">Youngistan <span>Times</span></a>
+  <p>© 2021 Nakshatra RP · Made with ❤️ and a lot of overthinking</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+</script>
+
+</body>
+</html>
